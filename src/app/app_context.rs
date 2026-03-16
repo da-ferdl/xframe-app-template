@@ -1,5 +1,6 @@
+use crate::app::VirtualKeyboard;
+
 use super::Navigator;
-use egui_virtual_keyboard::VirtualKeyboard;
 use xframe::{
     EguiContextExt,
     egui::{self, Theme, ThemePreference},
@@ -83,7 +84,7 @@ impl AppContext {
     ) -> Self {
         let mut custom_virtual_keyboard = None;
         if custom_keyboard_preference.should_use_keyboard(&egui_ctx) {
-            custom_virtual_keyboard = Some(egui_virtual_keyboard::VirtualKeyboard::default());
+            custom_virtual_keyboard = Some(VirtualKeyboard::default());
         }
 
         let selected_layout = layout_preference.as_layout(&egui_ctx);
@@ -169,7 +170,7 @@ impl AppContext {
         if should_use_keyboard {
             let _ = self
                 .custom_virtual_keyboard
-                .get_or_insert_with(|| egui_virtual_keyboard::VirtualKeyboard::default());
+                .get_or_insert_with(|| VirtualKeyboard::default());
         } else {
             self.custom_virtual_keyboard = None;
         }

@@ -9,6 +9,7 @@ mod screen;
 pub(super) mod theme;
 mod ui_event_proxy;
 mod ui_state;
+mod virtual_keyboard;
 mod widget;
 
 pub(super) use app_context::*;
@@ -20,5 +21,6 @@ pub(crate) use main_application::MainApplication;
 pub(super) use navigator::{NavigateMessage, Navigator, NavigatorState};
 pub(super) use ui_event_proxy::UiEventProxy;
 pub(crate) use ui_state::*;
+pub(super) use virtual_keyboard::VirtualKeyboard;
 
 pub(crate) type ExtEvent = Box<dyn FnOnce(&mut MainApplication) + Send>;
