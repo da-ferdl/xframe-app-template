@@ -1,0 +1,73 @@
+
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace = 'one.lopes.eguiapp'
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId "one.lopes.eguiapp"
+        // Android 8.1
+        minSdk 27
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            minifyEnabled false
+            //packagingOptions {
+            //    doNotStrip '**/*.so'
+            //}
+            //debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+}
+
+dependencies {
+    // Solves build error 'Duplicate class kotlin.collections.jdk8.CollectionsJDK8Kt ...'
+    // Happened after switching build variant from debug to release - strange as kotlin is not
+    // used in this project???
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+
+
+    implementation libs.appcompat
+    //implementation libs.material
+    implementation libs.games.activity
+}
+
+// **** Task to build the rust jni libs ****
+
+import javax.inject.Inject
+interface InjectedExecOps {
+    @Inject //@javax.inject.Inject
+    ExecOperations getExecOps()
+}
+tasks.register("preBuildRust") {
+    def injected = project.objects.newInstance(InjectedExecOps)
+    injected.execOps.exec {
+        commandLine '../build_android_rust.sh'
+    }
+}
+build.dependsOn preBuildRust

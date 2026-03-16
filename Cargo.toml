@@ -1,0 +1,58 @@
+[package]
+name = "xframe_app"
+version = "0.1.0"
+authors = ["Da Ferdl <da@ferdl.com>"]
+edition = "2024"
+include = ["LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+
+[dependencies]
+xframe = { version = "0.33.3", default-features = false, git = "https://github.com/da-ferdl/egui", branch = "dev_egui_v0.33.3" }
+#xframe = { version = "0.33.3", default-features = false, path = "../../../../Repositories/GitHub/egui-fork/crates/xframe" }
+log = "0.4.27"
+egui_router = { version = "0.6.0", path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_router" }
+egui_animation = { version = "0.10.0", path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_animation" }
+egui_material_icons = { version = "0.5.0", path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_material_icons" }
+# egui_animation = { version = "0.10.0", path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_animation" }
+nohash-hasher = "0.2.0"
+# Workaround for virtual keyboard on android - TODO: remove as soon winit etc. supports android keyboard.
+egui_virtual_keyboard = { path = "../egui_virtual_keyboard-main" }
+
+
+# Android:
+[target.'cfg(target_os = "android")'.dependencies]
+xframe = { version = "*", default-features = false, features = [
+    # currently needs patch to use the git 0.6.0 android-activity version
+    "android-game-activity"
+], git = "https://github.com/da-ferdl/egui", branch = "dev_egui_v0.33.3" }
+#xframe = { version = "*", default-features = false, features = [
+     #currently needs patch to use the git 0.6.0 android-activity version
+#    "android-game-activity"
+#], path = "../../../../Repositories/GitHub/egui-fork/crates/xframe" }
+android_logger = "0.15.1"
+
+# iOS / MacOS:
+[target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
+oslog = "0.2.0"
+
+# macOS
+#[target.'cfg(target_os = "macos")'.dependencies]
+
+[patch.crates-io]
+#egui_router = { path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_router" }
+#egui_animation = { path = "../../../../Repositories/GitHub/hello_egui-fork/crates/egui_animation" }
+#egui = { version = "0.33.3", default-features = false, path = "../../../../Repositories/GitHub/egui-fork/crates/egui" }
+#xframe = { version = "0.33.3", default-features = false, path = "../../../../Repositories/GitHub/egui-fork/crates/xframe" }
+#winit = { version = "0.30.12", default-features = false, path = "../../../../Repositories/GitHub/winit-fork" }
+
+
+[profile.release]
+opt-level = 2
+#opt-level = 3
+#lto = "fat"
+#codegen-units = 1
+#panic = "abort"
+#strip = true
+
+# Optimize all dependencies even in debug builds:
+[profile.dev.package."*"]
+opt-level = 2
