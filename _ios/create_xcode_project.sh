@@ -52,6 +52,7 @@ targets:
     sources:
       - path: Sources
       - path: Assets.xcassets
+      - path: LaunchScreen.storyboard
       - path: assets
         buildPhase: resources
         type: folder
@@ -71,7 +72,7 @@ targets:
           - UIInterfaceOrientationLandscapeRight
         CFBundleShortVersionString: 0.1.0
         CFBundleVersion: "0.1.0"
-        UILaunchStoryboardName: main
+        UILaunchStoryboardName: LaunchScreen.storyboard
     entitlements:
       path: ${PROD_NAME}.entitlements
     scheme:

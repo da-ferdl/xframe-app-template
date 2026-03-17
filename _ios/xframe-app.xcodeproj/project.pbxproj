@@ -17,6 +17,7 @@
 		C14A342AF69D96EE06C5340F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F68281A4B47CB3426275B0 /* QuartzCore.framework */; };
 		CAA3CEE49729FFCB787F3DD4 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A42D8330B04D9BB504534D2 /* Metal.framework */; };
 		F5820566614A6800607FA3D1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 712A1DF59A7B257B5B093590 /* main.mm */; };
+		F5D768D448A3FDF68DA5DF88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F3E92E85BF711F74F5A243 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A0E584C0100350EF2E40D0AA /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = SOURCE_ROOT; };
 		B05F885B10FF1D6BF94A998F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C296CC38A6A641244B5B27F7 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		C7F3E92E85BF711F74F5A243 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8373955D5DF48D68201A76C /* xframe_app.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = xframe_app.xcframework; sourceTree = "<group>"; };
 		EDA0A7AF850692B7E10A9FF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F3AD43F51FEFAFC6BE42EAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				A0E584C0100350EF2E40D0AA /* assets */,
 				F3AD43F51FEFAFC6BE42EAB9 /* Assets.xcassets */,
+				C7F3E92E85BF711F74F5A243 /* LaunchScreen.storyboard */,
 				062120127F6210677581790B /* Sources */,
 				DF22F12913BD0ED130E246B2 /* Frameworks */,
 				4BBCB1E1D5B2517D488709F0 /* Products */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				544BE5AE212FFCB7105DB539 /* Assets.xcassets in Resources */,
+				F5D768D448A3FDF68DA5DF88 /* LaunchScreen.storyboard in Resources */,
 				9782BF437112D9DD71C77F06 /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
