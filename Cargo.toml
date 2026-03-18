@@ -9,10 +9,12 @@ include = ["LICENSE-MIT", "**/*.rs", "Cargo.toml"]
 xframe = { version = "0.33.3", default-features = false, git = "https://github.com/da-ferdl/egui", branch = "dev_egui_v0.33.3" }
 #xframe = { version = "0.33.3", default-features = false, path = "../egui-fork/crates/xframe" }
 log = "0.4.27"
-egui_router = { version = "0.6.0", path = "../hello_egui-fork/crates/egui_router" }
-egui_animation = { version = "0.10.0", path = "../hello_egui-fork/crates/egui_animation" }
-egui_material_icons = { version = "0.5.0", path = "../hello_egui-fork/crates/egui_material_icons" }
+egui_router = { version = "0.6.0", git = "https://github.com/da-ferdl/hello_egui", branch = "adjusted_v0.10.0_1" }
+#egui_router = { version = "0.6.0", path = "../hello_egui-fork/crates/egui_router" }
+egui_animation = { version = "0.10.0", git = "https://github.com/da-ferdl/hello_egui", branch = "adjusted_v0.10.0_1" }
 # egui_animation = { version = "0.10.0", path = "../hello_egui-fork/crates/egui_animation" }
+egui_material_icons = { version = "0.5.0", git = "https://github.com/da-ferdl/hello_egui", branch = "adjusted_v0.10.0_1" }
+#egui_material_icons = { version = "0.5.0", path = "../hello_egui-fork/crates/egui_material_icons" }
 nohash-hasher = "0.2.0"
 
 
